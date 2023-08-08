@@ -1,13 +1,46 @@
-function Navbar() {
-    return <nav>
-        <div>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M22.5 10.5H1.5C0.671578 10.5 0 11.1716 0 12C0 12.8284 0.671578 13.5 1.5 13.5H22.5C23.3284 13.5 24 12.8284 24 12C24 11.1716 23.3284 10.5 22.5 10.5Z" fill="white"/>
-<path d="M1.5 6.50001H22.5C23.3284 6.50001 24 5.82843 24 5C24 4.17158 23.3284 3.5 22.5 3.5H1.5C0.671578 3.5 0 4.17158 0 5C0 5.82843 0.671578 6.50001 1.5 6.50001Z" fill="white"/>
-<path d="M22.5 17.5H1.5C0.671578 17.5 0 18.1716 0 19C0 19.8284 0.671578 20.5 1.5 20.5H22.5C23.3284 20.5 24 19.8284 24 19C24 18.1716 23.3284 17.5 22.5 17.5Z" fill="white"/>
-</svg>
+import Btn from "./btn";
 
-        </div>
+interface Props {
+  name: string;
+  url: string;
+}
+const pages: Props[] = [
+  {
+    name: "inicio",
+    url: "/",
+  },
+  {
+    name: "tienda",
+    url: "/shop",
+  },
+  {
+    name: "nosotros",
+    url: "/about",
+  },
+  {
+    name: "ofertas",
+    url: "/offer",
+  },
+];
+
+function Navbar() {
+  return (
+    <nav className="flex justify-between py-2.5 px-20 items-center bg-[var(--primary)] ">
+      <div className="flex gap-2.5 items-center">
+        <img src="/svg/icon.svg" alt="icon" />
+        <span className="text-[36px] font-bold">Pio pio</span>
+      </div>
+      <ul className="flex gap-5">
+        {pages.map((page) => (
+          <a href={page.url}>
+            <li className="p-2.5 min-w-[100px] text-center rounded-[10px] transition-all duration-300 hover:bg-[var(--primaryDark)]">
+              {page.name}
+            </li>
+          </a>
+        ))}
+      </ul>
+			<Btn name="iniciar sesion" url="/"/>
     </nav>
+  );
 }
 export default Navbar;

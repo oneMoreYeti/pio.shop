@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    @font-face {
+        font-family:'inter';
+        src: url(/public/font/inter.ttf);
+    }
+    :root {
+        --bg:#161616;
+        --primary:#46A6FF;
+        --tertiary:#78CBFF;
+        --secondary:#00EA87;
+        --primaryDark:#0085DB;
+    }
+    body {
+        font-family:'inter';
+    }
+}
